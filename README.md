@@ -1,1 +1,3 @@
-# Accelerating-TinyML-Inference-on-Microcontrollers-through-Approximate-Kernels
+# Auto-Approx-DSE-MCU-Aceeleration-Toolkit
+
+The repository for the "Accelerating TinyML Inference on Microcontrollers through Approximate Kernels" paper is under construction ...
