@@ -1,3 +1,3 @@
-# ATAMAN : AuTo driven Approximation and Microcontroller AcceleratioN Toolkit
+# ATAMAN: AuTo driven Approximation and Microcontroller AcceleratioN Toolkit
 
 The repository for the "Accelerating TinyML Inference on Microcontrollers through Approximate Kernels" paper is under construction ...
