@@ -29,13 +29,13 @@ def extract_weights(model_path,return_bias=False):
     bias_values = []
 
     for j in range(len(conv_indexes)):
-        # filter_dims = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][1])["shape"]
-        # input_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][0])["shape"]
-        # output_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["outputs"][0])["shape"]
+        filter_dims = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][1])["shape"]
+        input_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][0])["shape"]
+        output_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["outputs"][0])["shape"]
 
-        filter_dims = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][1],0)["shape"]
-        input_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][0],0)["shape"]
-        output_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["outputs"][0],0)["shape"]
+        # filter_dims = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][1],0)["shape"]
+        # input_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][0],0)["shape"]
+        # output_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["outputs"][0],0)["shape"]
 
         bias_values.append(interpreter.get_tensor(op_details[conv_indexes[j]]["inputs"][2]))
         # print(interpreter.get_tensor(op_details[conv_indexes[j]]["inputs"][2]))
@@ -76,13 +76,13 @@ def extract_weights_np(model_path, return_bias=False):
     bias_values = []
 
     for j in range(len(conv_indexes)):
-        filter_dims = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][1],0)["shape"]
-        input_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][0],0)["shape"]
-        output_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["outputs"][0],0)["shape"]
+        # filter_dims = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][1],0)["shape"]
+        # input_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][0],0)["shape"]
+        # output_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["outputs"][0],0)["shape"]
 
-        #filter_dims = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][1])["shape"]
-        #input_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][0])["shape"]
-        #output_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["outputs"][0])["shape"]
+        filter_dims = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][1])["shape"]
+        input_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["inputs"][0])["shape"]
+        output_shape = interpreter._get_tensor_details(op_details[conv_indexes[j]]["outputs"][0])["shape"]
 
         bias_values.append(interpreter.get_tensor(op_details[conv_indexes[j]]["inputs"][2]))
 
@@ -97,8 +97,8 @@ def extract_weights_np(model_path, return_bias=False):
             for l in range(kernel_y):
                 for m in range(kernel_x):
                     for n in range(input_ch):
-                        index_weights[k].append(interpreter.get_tensor(op_details[conv_indexes[j]]["inputs"][1])[k][l][m][n])
-                        # index_weights[k].append(interpreter.get_tensor(op_details[conv_indexes[j]]["inputs"][1],0)[k][l][m][n])
+                        # index_weights[k].append(interpreter.get_tensor(op_details[conv_indexes[j]]["inputs"][1])[k][l][m][n])
+                        index_weights[k].append(interpreter.get_tensor(op_details[conv_indexes[j]]["inputs"][1],0)[k][l][m][n])
 
         num_cols.append(input_ch * kernel_y * kernel_x)
         num_rows.append(output_ch)
@@ -108,9 +108,6 @@ def extract_weights_np(model_path, return_bias=False):
         bias_values = np.array(bias_values)
 
     return tensor_weights, np.array(num_rows), np.array(num_cols), bias_values
-
-
-# %%
 
 def check_keywords(file_line,row_index=0,offset=0):
     offset_local=offset
