@@ -42,13 +42,13 @@ Thumbs.db
 
 # User-specific files #
 ######################
+__pycache__/
 dse_res*/
 modified_tlfite_models*/
 significance_folder*/
 plot*/
 data_preprocessing/cifar_data_npy
-data_preprocessing/temp/raw_data
-
+raw_data/
 
 # Vivado files #
 *.jou

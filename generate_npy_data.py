@@ -7,7 +7,7 @@ import os
 (_, _), (x_test, y_test) = cifar10.load_data()
 
 # Create directory if it doesn't exist
-output_dir = '/home/mengeo00/Desktop/ATAMAN-AuTo-driven-Approximation-and-Microcontroller-AcceleratioN-Toolkit/data_preprocessing/cifar_data_npy'
+output_dir = './data_preprocessing/cifar_data_npy'
 os.makedirs(output_dir, exist_ok=True)
 
 # Save test data and labels to .npy files in the new directory

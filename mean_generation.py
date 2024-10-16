@@ -1,13 +1,8 @@
-import sys 
-# adding global_lib_path to the system path
-global_lib_path = r"C:\Users\mentz\Desktop\TinyML_Approx_and_Unpack\global_libs"
-sys.path.insert(0, global_lib_path)
-
 import preload_mat_mult as pmm
 import optimized_mac_perforation as omp
 
 model_name = "LeNet_Cifar10_INT8"
-model_path = r"C:\Users\mentz\Desktop\TinyML_Approx_and_Unpack\models/" + model_name + ".tflite"
+model_path = "./tflite_models/" + model_name + ".tflite"
 
 tensor_weights,num_rows,num_cols,bias_values = pmm.extract_weights(model_path)
 
