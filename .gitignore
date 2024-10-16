@@ -47,6 +47,7 @@ modified_tlfite_models*/
 significance_folder*/
 plot*/
 data_preprocessing/cifar_data_npy
+data_preprocessing/temp/raw_data
 
 
 # Vivado files #
